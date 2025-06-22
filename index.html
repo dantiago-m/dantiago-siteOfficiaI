@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dantiago Neighbourhood Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Variables & Reset */
+    :root {
+      --bg: #111;
+      --fg: #f5f5f5;
+      --muted: #888;
+      --accent: #64b5f6;
+      --card: #1e1e1e;
+      --border: #333;
+      --radius: 8px;
+    }
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header & Nav */
+    header {
+      position: relative;
+      background: linear-gradient(135deg, #000, #222);
+      text-align: center;
+      padding: 4rem 1rem 6rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.6);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      font-weight: 600;
+      color: var(--fg);
+      transition: color .3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero-content img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: .5rem;
+    }
+    .hero-content p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: .75rem 1.5rem;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: background .3s;
+    }
+    .btn:hover {
+      background: #42a5f5;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: -4rem auto 3rem;
+      padding: 0 1rem;
+    }
+    section + section {
+      margin-top: 4rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: .5rem;
+    }
+
+    /* Services */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: .5rem;
+    }
+    .card .price {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: .75rem;
+    }
+    .card .desc { color: var(--muted); font-size: .9rem; }
+
+    /* Booking & Reviews Forms */
+    form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    label {
+      display: block;
+      margin: .75rem 0 .25rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: .75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--fg);
+      font-size: 1rem;
+    }
+    textarea { resize: vertical; }
+    input[type="submit"] {
+      margin-top: 1rem;
+      background: var(--accent);
+      color: #000;
+      cursor: pointer;
+      transition: background .3s;
+    }
+    input[type="submit"]:hover {
+      background: #42a5f5;
+    }
+
+    /* Contact & Footer */
+    .contact p {
+      margin-bottom: .5rem;
+    }
+    .contact a { color: var(--fg); font-weight: 600; }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+      header { padding-bottom: 4rem; }
+      .hero-content h1 { font-size: 1.8rem; }
+      nav { flex-wrap: wrap; gap: .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#booking">Book</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScPc4aH8VXnh_kZIKQP8gsLX2uiP56KblZ8U5e1KC1Mf66X0w/viewform?usp=header" target="_blank">Apply</a>
+    </nav>
+    <div class="hero-content">
+      <img src="logo.png" alt="Dantiago Logo">
+      <h1>Dantiago Neighbourhood Services</h1>
+      <p>Your local team for clean cars, neat lawns & tidy streets</p>
+      <a href="#booking" class="btn">Book Now</a>
+    </div>
+  </header>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Lawn mowing & edging</h3>
+        <div class="price">$40</div>
+        <div class="desc">Neatly cut and edged every time.</div>
+      </div>
+      <div class="card">
+        <h3>Car washing</h3>
+        <div class="price">$30</div>
+        <div class="desc">Interior & exterior shine.</div>
+      </div>
+      <div class="card">
+        <h3>Bin cleaning</h3>
+        <div class="price">$10</div>
+        <div class="desc">Fresh, deodorised bins.</div>
+      </div>
+      <div class="card">
+        <h3>Curb number spray painting</h3>
+        <div class="price">$10</div>
+        <div class="desc">Bold, clear house numbers.</div>
+      </div>
+      <div class="card">
+        <h3>Leaf blowing & outdoor tidying</h3>
+        <div class="price">$10</div>
+        <div class="desc">Paths, patios, driveways.</div>
+      </div>
+      <div class="card">
+        <h3>Garden clean-ups & weeding</h3>
+        <div class="price">Varies</div>
+        <div class="desc">Pruning, weeding, green-waste removal.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Book a Service</h2>
+    <form action="mailto:dantiago.services@gmail.com" method="POST" enctype="text/plain" id="bookingForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="service">Service</label>
+      <select id="service" name="service" required>
+        <option value="Lawn Mowing - $40">Lawn Mowing – $40</option>
+        <option value="Car Washing - $30">Car Washing – $30</option>
+        <option value="Bin Cleaning - $10">Bin Cleaning – $10</option>
+        <option value="Curb Number Spray - $10">Curb Number Spray – $10</option>
+        <option value="Leaf Blowing - $10">Leaf Blowing – $10</option>
+        <option value="Garden Clean-ups (Varies)">Garden Clean-ups & Weeding – Varies</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Preferred Time</label>
+      <select id="time" name="time" required></select>
+
+      <input type="submit" value="Send Booking">
+    </form>
+  </section>
+
+  <section id="reviews">
+    <h2>Leave a Review</h2>
+    <form action="mailto:dantiago.services@gmail.com" method="POST" enctype="text/plain">
+      <label for="review-name">Your Name</label>
+      <input type="text" id="review-name" name="Name" required>
+
+      <label for="rating">Rating</label>
+      <select id="rating" name="Rating" required>
+        <option value="⭐️">⭐️</option>
+        <option value="⭐️⭐️">⭐️⭐️</option>
+        <option value="⭐️⭐️⭐️">⭐️⭐️⭐️</option>
+        <option value="⭐️⭐️⭐️⭐️">⭐️⭐️⭐️⭐️</option>
+        <option value="⭐️⭐️⭐️⭐️⭐️">⭐️⭐️⭐️⭐️⭐️</option>
+      </select>
+
+      <label for="comments">Your Review</label>
+      <textarea id="comments" name="Review" rows="4" required></textarea>
+
+      <input type="submit" value="Submit Review">
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <p>📞 <a href="tel:0493857489">Daniel: 0493 857 489</a></p>
+      <p>📞 <a href="tel:0449968544">Teammate: 0449 968 544</a></p>
+      <p>✉️ <a href="mailto:dantiago.services@gmail.com">dantiago.services@gmail.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Dantiago Neighbourhood Services. Proudly serving Carnes Hill &amp; Middleton Grange.
+  </footer>
+
+  <script>
+    // Dynamic booking times
+    const dateInput = document.getElementById('date');
+    const timeSelect = document.getElementById('time');
+    dateInput.addEventListener('change', () => {
+      const day = new Date(dateInput.value).getDay();
+      let slots = [];
+      if (day === 0 || day === 6) {
+        for (let h = 11; h <= 17; h++) {
+          slots.push(`${h.toString().padStart(2,'0')}:00`);
+          slots.push(`${h.toString().padStart(2,'0')}:30`);
+        }
+        slots.push('18:00');
+      } else {
+        slots = ['15:30','16:00','16:30','17:00','17:30','18:00'];
+      }
+      timeSelect.innerHTML = '';
+      slots.forEach(t => {
+        const [hr, mn] = t.split(':').map(Number);
+        const ampm = hr >= 12 ? 'PM' : 'AM';
+        const hr12 = ((hr + 11) % 12 + 1);
+        const label = `${hr12}:${mn.toString().padStart(2,'0')} ${ampm}`;
+        let opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = label;
+        timeSelect.append(opt);
+      });
+    });
+  </script>
+
+</body>
+</html>
